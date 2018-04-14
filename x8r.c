@@ -61,30 +61,31 @@ static void getX8rAlgoString(const uint8_t* prevblock, char *output)
 
 void x8r_hash(const char* input, char* output, uint32_t len)
 {
-	unsigned char _ALIGN(64) hash[128];
+	uint32_t hash[64/4];
+	char hashOrder[HASH_FUNC_COUNT + 1] = { 0 };
 
-	sph_blake512_context ctx_blake;
-	sph_bmw512_context ctx_bmw;
-	sph_groestl512_context ctx_groestl;
-	sph_jh512_context ctx_jh;
-	sph_keccak512_context ctx_keccak;
-	sph_skein512_context ctx_skein;
-	sph_luffa512_context ctx_luffa;
-	sph_cubehash512_context ctx_cubehash;
-	sph_shavite512_context ctx_shavite;
-	sph_simd512_context ctx_simd;
-	sph_echo512_context ctx_echo;
-	sph_hamsi512_context ctx_hamsi;
-	sph_fugue512_context ctx_fugue;
-	sph_shabal512_context ctx_shabal;
-	sph_whirlpool_context ctx_whirlpool;
-	sph_sha512_context ctx_sha512;
+	sph_blake512_context     ctx_blake;
+	sph_bmw512_context       ctx_bmw;
+	sph_groestl512_context   ctx_groestl;
+	sph_skein512_context     ctx_skein;
+	sph_jh512_context        ctx_jh;
+	sph_keccak512_context    ctx_keccak;
+	sph_luffa512_context     ctx_luffa;
+	sph_cubehash512_context  ctx_cubehash;
+	sph_shavite512_context   ctx_shavite;
+	sph_simd512_context      ctx_simd;
+	sph_echo512_context      ctx_echo;
+	sph_hamsi512_context     ctx_hamsi;
+	sph_fugue512_context     ctx_fugue;
+	sph_shabal512_context    ctx_shabal;
+	sph_whirlpool_context    ctx_whirlpool;
+	sph_sha512_context       ctx_sha512;
 
 	void *in = (void*) input;
-	int size = 80;
+	int size = len;
+    int i;
 
-	uint32_t *in32 = (uint32_t*) input;
-	getX8RAlgoString(&in32[1], hashOrder);
+	getX8rAlgoString(&input[4], hashOrder);
 
 	int count = 0;
 
