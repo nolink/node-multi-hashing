@@ -89,7 +89,7 @@ void x8r_hash(const char* input, char* output, uint32_t len)
 
 	int count = 0;
 
-	for (int i = 9; i < 16; i++)
+	for (i = 9; i < 16; i++)
 	{
 		const char elem = hashOrder[i];
 		const uint8_t algo = elem >= 'A' ? elem - 'A' + 10 : elem - '0';
