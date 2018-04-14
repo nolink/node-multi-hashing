@@ -56,6 +56,7 @@
                 "x14.c",
                 "x15.c",
 		"x16r.c",
+        "x8r.c",
                 "zr5.c",
                 "crypto/oaes_lib.c",
                 "crypto/c_keccak.c",
