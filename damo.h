@@ -1,5 +1,5 @@
-#ifndef X8R_H
-#define X8R_H
+#ifndef DAMO_H
+#define DAMO_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -7,7 +7,7 @@ extern "C" {
 
 #include <stdint.h>
 
-void x8r_hash(const char* input, char* output, uint32_t len);
+void damo_hash(const char* input, char* output, uint32_t len);
 
 #ifdef __cplusplus
 }

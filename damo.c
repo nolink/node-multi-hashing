@@ -42,7 +42,7 @@ enum Algo {
 	HASH_FUNC_COUNT
 };
 
-static void getX8rAlgoString(const uint8_t* prevblock, char *output)
+static void getDamoAlgoString(const uint8_t* prevblock, char *output)
 {
 	char *sptr = output;
 	int j;
@@ -59,7 +59,7 @@ static void getX8rAlgoString(const uint8_t* prevblock, char *output)
 	*sptr = '\0';
 }
 
-void x8r_hash(const char* input, char* output, uint32_t len)
+void damo_hash(const char* input, char* output, uint32_t len)
 {
 	uint32_t hash[64/4];
 	char hashOrder[HASH_FUNC_COUNT + 1] = { 0 };
@@ -85,7 +85,7 @@ void x8r_hash(const char* input, char* output, uint32_t len)
 	int size = len;
     int i;
 
-	getX8rAlgoString(&input[4], hashOrder);
+	getDamoAlgoString(&input[4], hashOrder);
 
 	int count = 0;
 
