@@ -1,5 +1,5 @@
-#ifndef DAMO_H
-#define DAMO_H
+#ifndef DOOP_H
+#define DOOP_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -7,7 +7,7 @@ extern "C" {
 
 #include <stdint.h>
 
-void damo_hash(const char* input, char* output, uint32_t len);
+void doop_hash(const char* input, char* output, uint32_t len);
 
 #ifdef __cplusplus
 }
